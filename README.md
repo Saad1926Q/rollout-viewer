@@ -4,6 +4,10 @@
 A simple local viewer for reading evaluation results and model rollouts
 </p>
 
+<p align="center">
+  <img src="public/images/demo.png" alt="Rollout Viewer showing a selected rollout transcript" width="100%">
+</p>
+
 ---
 
 ## Motivation
@@ -16,10 +20,11 @@ The data is useful, but reading it directly as JSON makes it difficult to unders
 
 This repository provides an Astro and React application for:
 
-- loading evaluation summaries and trajectory files locally;
-- browsing tasks and multiple rollout attempts;
-- reading model responses, actions, environment states, and rewards in order;
-- filtering runs by outcome and inspecting failures quickly.
+- loading rollout JSON, JSONL, and NDJSON files locally;
+- browsing tasks and their rollout attempts;
+- reading messages, state, tool data, rewards, and arbitrary metadata in order;
+- filtering by the result values present in the loaded data;
+- opening a separate run-level summary without interrupting rollout review.
 
 ## Goal
 
