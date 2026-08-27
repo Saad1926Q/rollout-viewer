@@ -63,6 +63,10 @@ function asObject(value: unknown): JsonObject {
   return isObject(value) ? value : {};
 }
 
+function asRecord(value: JsonValue): JsonObject {
+  return isObject(value) ? value : { value };
+}
+
 function scalarText(value: JsonValue | undefined): string | undefined {
   if (typeof value === "string") return value;
   if (typeof value === "number" || typeof value === "boolean") return String(value);
@@ -121,7 +125,7 @@ function extractTurns(record: JsonObject): Turn[] {
   const container = turnContainers.find((field) => Array.isArray(record[field]));
   if (container) {
     return (record[container] as JsonValue[]).map((value, index) => {
-      const raw = asObject(value);
+      const raw = asRecord(value);
       return {
         index: index + 1,
         label: `turn ${displayValue(raw.turn ?? raw.step ?? raw.index, String(index + 1))}`,
@@ -133,7 +137,7 @@ function extractTurns(record: JsonObject): Turn[] {
   }
   if (Array.isArray(record.messages)) {
     return (record.messages as JsonValue[]).map((value, index) => {
-      const raw = asObject(value);
+      const raw = asRecord(value);
       return { index: index + 1, label: `turn ${index + 1}`, messages: parseMessages(raw), data: turnData(raw), raw };
     });
   }
@@ -141,7 +145,7 @@ function extractTurns(record: JsonObject): Turn[] {
 }
 
 function normalizeRollout(value: JsonValue, index: number, format: string): Rollout {
-  const raw = asObject(value);
+  const raw = asRecord(value);
   const id = displayValue(firstField(raw, idFields), `rollout ${index + 1}`);
   const attempt = displayValue(firstField(raw, attemptFields), String(index + 1));
   const status = scalarText(firstField(raw, statusFields)) || (raw.success === true ? "success" : raw.success === false ? "failure" : undefined);
