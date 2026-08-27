@@ -122,7 +122,13 @@ function extractTurns(record: JsonObject): Turn[] {
   if (container) {
     return (record[container] as JsonValue[]).map((value, index) => {
       const raw = asObject(value);
-      return { index: index + 1, label: displayValue(raw.turn ?? raw.step ?? raw.index, `turn ${index + 1}`), messages: parseMessages(raw), data: turnData(raw), raw };
+      return {
+        index: index + 1,
+        label: `turn ${displayValue(raw.turn ?? raw.step ?? raw.index, String(index + 1))}`,
+        messages: parseMessages(raw),
+        data: turnData(raw),
+        raw,
+      };
     });
   }
   if (Array.isArray(record.messages)) {
@@ -179,6 +185,7 @@ export function parseRunContent(content: string, sourceName: string): Run {
   const grouped = new Map<string, RolloutGroup>();
   rollouts.forEach((rollout) => {
     const group = grouped.get(rollout.id) ?? { id: rollout.id, label: rollout.id, rollouts: [] };
+    rollout.index = group.rollouts.length + 1;
     group.rollouts.push(rollout); grouped.set(rollout.id, group);
   });
   return { format: isJsonl ? `${format}` : format, metadata, summary, groups: [...grouped.values()], sourceName, warnings: [] };
@@ -186,7 +193,7 @@ export function parseRunContent(content: string, sourceName: string): Run {
 
 export function parseSummaryFile(value: unknown): JsonObject {
   const root = asObject(value);
-  return asObject(root.summary) || root;
+  return isObject(root.summary) ? root.summary : root;
 }
 
 export function allRollouts(run: Run): Rollout[] {
