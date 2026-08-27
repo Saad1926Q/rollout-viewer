@@ -16,7 +16,7 @@ code, pre, .eyebrow, .board-label, .outcome, .usage, .legal, kbd { font-family: 
 .upload-card h2 { margin: 14px 0 6px; font-size: 24px; }
 .upload-card p { margin: 0 auto 24px; max-width: 400px; color: #aeb0ac; line-height: 1.6; }
 .upload-card button { border: 0; padding: 12px 16px; color: #162018; background: #bce5a5; font-weight: 800; }
-.upload-card input, .summary-input input { display: none; }
+.upload-card input { display: none; }
 .upload-card > span { display: block; margin-top: 13px; color: #757a76; font-size: 12px; }
 .landing-note { color: #767a77; font-size: 13px; text-align: center; }
 .error { max-width: 580px; margin: 0; color: #ffb3ab; font-size: 13px; }
@@ -27,7 +27,7 @@ code, pre, .eyebrow, .board-label, .outcome, .usage, .legal, kbd { font-family: 
 .run-stats { display: flex; align-items: center; gap: 24px; color: #818783; font-size: 11px; text-transform: uppercase; letter-spacing: .05em; }
 .run-stats span { display: grid; gap: 3px; }
 .run-stats b { color: #e7e5df; font: 500 18px 'DM Mono', monospace; letter-spacing: 0; }
-.summary-input { border: 1px solid #464d49; padding: 8px 10px; color: #c5d2c8; cursor: pointer; }
+.summary-button { border: 1px solid #464d49; padding: 8px 10px; color: #c5d2c8; background: transparent; cursor: pointer; font-size: 11px; text-transform: uppercase; letter-spacing: .04em; }.summary-button:hover, .summary-button.active { border-color: #bce5a5; color: #cbedb9; }
 .sidebar { overflow: auto; border-right: 1px solid #2e3333; background: #15181a; }
 .sidebar-controls { display: grid; grid-template-columns: 1fr 110px; gap: 7px; padding: 14px 12px 6px; }
 .sidebar input, .sidebar select { min-width: 0; border: 1px solid #373d3b; padding: 8px; color: #d9dbd6; background: #1d2122; font-size: 12px; outline: none; }

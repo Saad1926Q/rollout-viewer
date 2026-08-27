@@ -46,8 +46,7 @@ Open the address printed by Astro, normally `http://localhost:4321`.
 ### Load a run
 
 1. Choose or drag in a `.json`, `.jsonl`, or `.ndjson` rollout file.
-2. Optionally click **Add eval JSON** and select a separate evaluation summary.
-3. Select a task and rollout in the sidebar, then scroll through its turns.
+2. Select a task and rollout in the sidebar, then scroll through its turns.
 
 All parsing happens locally in the browser. The viewer does not upload run data.
 
@@ -56,6 +55,8 @@ All parsing happens locally in the browser. The viewer does not upload run data.
 - Search across task IDs, rollout IDs, messages, and raw rollout data.
 - Filter by the result values discovered in the loaded file.
 - Click a rollout to inspect it.
+- Click **Run summary** for aggregate run metrics and metadata.
+- Click **Home** to clear the loaded file and return to the import screen.
 - Use <kbd>j</kbd> / <kbd>↓</kbd> and <kbd>k</kbd> / <kbd>↑</kbd> to move between visible rollouts.
 - Expand nested objects and arrays to inspect task-specific state.
 - Expand **inspect raw turn** or **inspect raw rollout** to see the original record.
