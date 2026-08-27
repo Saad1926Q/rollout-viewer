@@ -18,6 +18,7 @@ export interface Step {
 }
 
 export interface Rollout {
+  key: string;
   id: string;
   rolloutId: number;
   initialBoard?: number[];
@@ -95,6 +96,7 @@ export function parseRolloutFile(value: unknown, sourceName: string): Run {
       };
     });
     return {
+      key: `${text(episode.id) || `episode-${index + 1}`}:${number(episode.rollout_id, index)}`,
       id: text(episode.id) || `episode-${index + 1}`,
       rolloutId: number(episode.rollout_id, index),
       initialBoard: numbers(episode.initial_board),
