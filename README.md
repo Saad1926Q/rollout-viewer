@@ -5,6 +5,10 @@ A simple local viewer for reading evaluation results and model rollouts
 </p>
 
 <p align="center">
+  <a href="https://rollout-viewer.vercel.app/">Open Rollout Viewer</a>
+</p>
+
+<p align="center">
   <img src="public/images/demo.png" alt="Rollout Viewer showing a selected rollout transcript" width="100%">
 </p>
 
@@ -29,6 +33,10 @@ This repository provides an Astro and React application for:
 ## Goal
 
 The goal is a lightweight, local-first tool that makes evaluation and RL run data pleasant to inspect while remaining easy to extend for additional rollout formats.
+
+## Use online
+
+Open [rollout-viewer.vercel.app](https://rollout-viewer.vercel.app/) to use the hosted viewer. Rollout files stay in your browser and are not uploaded.
 
 ## Usage
 
